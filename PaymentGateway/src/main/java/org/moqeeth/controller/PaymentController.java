@@ -1,4 +1,4 @@
-package org.moqeeth.Controller;
+package org.moqeeth.controller;
 
 import org.moqeeth.model.PaymentInfo;
 import org.moqeeth.service.PaymentService;
