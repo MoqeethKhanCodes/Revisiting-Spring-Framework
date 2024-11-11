@@ -36,7 +36,7 @@ public class WeatherSenseController {
             model.addAttribute("windSpeed", weatherSenseResponse.getMain().getHumidity());
 
             String weatherIcon = "wi wi-com-" + weatherSenseResponse.getWeather().get(0).getId();
-            model.addAttribute("weatheIcon", weatherIcon);
+            model.addAttribute("weatherIcon", weatherIcon);
         }else {
             model.addAttribute("error", "City not found");
         }
