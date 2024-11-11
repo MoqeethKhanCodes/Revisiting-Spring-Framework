@@ -8,7 +8,7 @@
 
     <!-- Project Coordinates: defines the unique identifiers for this Maven project -->
     <groupId>org.moqeeth</groupId> <!-- Group ID, usually a reversed domain name -->
-    <artifactId>01-ApiParsing-BasicAnnotation</artifactId> <!-- Artifact ID, the name of the project -->
+    <artifactId>WeatherSenseApp</artifactId> <!-- Artifact ID, the name of the project -->
     <version>1.0-SNAPSHOT</version> <!-- Version, with "SNAPSHOT" indicating it’s in development -->
 
     <!-- Project properties: used to define project-wide properties such as Java version -->
