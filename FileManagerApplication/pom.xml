@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Model version: defines the POM format version being used (4.0.0 is the most common version) -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Project Coordinates: defines the unique identifiers for this Maven project -->
+    <groupId>org.moqeeth</groupId> <!-- Group ID, usually a reversed domain name -->
+    <artifactId>FileManagerApplication</artifactId> <!-- Artifact ID, the name of the project -->
+    <version>1.0-SNAPSHOT</version> <!-- Version, with "SNAPSHOT" indicating it’s in development -->
+
+    <!-- Project properties: used to define project-wide properties such as Java version -->
+    <properties>
+        <!-- Java source compatibility version -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <!-- Java target compatibility version -->
+        <maven.compiler.target>17</maven.compiler.target>
+        <!-- Project encoding standard (UTF-8 is commonly used for international support) -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- Project Dependencies: libraries and frameworks required by the project -->
+    <dependencies>
+        <!-- Spring Boot Starter Web: Includes all necessary dependencies to create a web application.
+             This includes Spring MVC and embedded web servers like Tomcat. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.3.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>3.3.5</version> <!-- Use the version that matches your Spring Boot version -->
+            <scope>runtime</scope> <!-- Ensures it’s only included during development -->
+            <optional>true</optional> <!-- Excludes it from production builds -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>3.3.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- Build section: manages the build lifecycle of the project -->
+    <build>
+        <plugins>
+            <!-- Spring Boot Maven Plugin: Enables packaging and running the application as a Spring Boot
+                 application. Also allows building a self-contained JAR with an embedded server. -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.3.5</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

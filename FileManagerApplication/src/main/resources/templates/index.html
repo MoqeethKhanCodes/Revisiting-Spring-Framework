@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>File Manager</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5e4d8;
+            color: #5a4e4d;
+            padding: 20px;
+            background-image: url('images/Brown Productivity Desktop Wallpaper.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #4d3c3a;
+        }
+
+        h3 {
+            color: #5a4e4d;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        form {
+            background-color: rgba(249, 244, 239, 0.9); /* Slight opacity for contrast */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d2b8a3;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #4d3c3a;
+            background-color: #fffaf0;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            background-color: #a47e6c;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #8f6958;
+        }
+
+        p {
+            font-size: 1em;
+            color: #4d3c3a;
+        }
+    </style>
+</head>
+<body>
+<h1>File Manager</h1>
+<p th:text="${message}"></p>
+
+<!-- Create File Form -->
+<h3>Create File</h3>
+<form th:action="@{/create}" method="post">
+    <input type="text" name="filename" placeholder="Enter filename" required/>
+    <button type="submit">Create File</button>
+</form>
+
+<!-- Read File Form -->
+<h3>Read File</h3>
+<form th:action="@{/read}" method="post">
+    <input type="text" name="filename" placeholder="Enter filename" required/>
+    <button type="submit">Read File</button>
+</form>
+
+<!-- Write File Form -->
+<h3>Write to File</h3>
+<form th:action="@{/write}" method="post">
+    <input type="text" name="filename" placeholder="Enter filename" required/>
+    <textarea name="content" placeholder="Enter content" required></textarea>
+    <button type="submit">Write File</button>
+</form>
+
+<!-- Rename File Form -->
+<h3>Rename File</h3>
+<form th:action="@{/rename}" method="post">
+    <input type="text" name="oldName" placeholder="Current filename" required/>
+    <input type="text" name="newName" placeholder="New filename" required/>
+    <button type="submit">Rename File</button>
+</form>
+
+<!-- Delete File Form -->
+<h3>Delete File</h3>
+<form th:action="@{/delete}" method="post">
+    <input type="text" name="filename" placeholder="Enter filename" required/>
+    <button type="submit">Delete File</button>
+</form>
+</body>
+</html>
