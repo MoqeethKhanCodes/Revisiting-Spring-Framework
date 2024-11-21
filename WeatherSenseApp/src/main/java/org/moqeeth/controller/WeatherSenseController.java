@@ -16,6 +16,11 @@ public class WeatherSenseController {
     @Autowired
     WeatherService weatherService;
 
+    @GetMapping("/")
+    public String landingPage() {
+        return "index";
+    }
+
     @GetMapping("getWeatherData")
     public String getWeatherData(
             @RequestParam("city") String city,
@@ -27,22 +32,30 @@ public class WeatherSenseController {
 
         log.info("Current Weather = " + weatherSenseResponse);
 
-        if (weatherSenseResponse != null) {
+        if (weatherSenseResponse != null && weatherSenseResponse.getCoord() != null) {
             model.addAttribute("city", weatherSenseResponse.getName());
             model.addAttribute("country", weatherSenseResponse.getSys().getCountry());
             model.addAttribute("weatherDescription", weatherSenseResponse.getWeather().get(0).getDescription());
-            model.addAttribute("temperature", weatherSenseResponse.getMain().getTemp());
-            model.addAttribute("humidity", weatherSenseResponse.getWind().getSpeed());
-            model.addAttribute("windSpeed", weatherSenseResponse.getMain().getHumidity());
+            model.addAttribute("temperature", calculateTemperatureInCelsius(weatherSenseResponse.getMain().getTemp()));
+            model.addAttribute("humidity", weatherSenseResponse.getMain().getHumidity());
+            model.addAttribute("windSpeed", calculateSpeedInKmph(weatherSenseResponse.getWind().getSpeed()));
 
             String weatherIcon = "wi wi-com-" + weatherSenseResponse.getWeather().get(0).getId();
             model.addAttribute("weatherIcon", weatherIcon);
-        }else {
+        } else {
             model.addAttribute("error", "City not found");
+            return "index";
         }
 
         return "weather";
     }
 
 
+    public double calculateTemperatureInCelsius(double defaultTemperature) {
+        return Math.round((defaultTemperature - 273) * 100.0) / 100.0;
+    }
+
+    public double calculateSpeedInKmph(double defaultSpeed) {
+        return defaultSpeed * 3.6;
+    }
 }

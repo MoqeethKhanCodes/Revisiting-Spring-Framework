@@ -39,6 +39,13 @@
             <optional>true</optional> <!-- Excludes it from production builds -->
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>3.3.5</version>
+        </dependency>
+
+
 
         <!-- Jackson Core: Core library for the Jackson JSON processor, used for JSON parsing -->
         <dependency>
